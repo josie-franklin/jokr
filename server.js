@@ -40,6 +40,7 @@ app.use(require('./controllers/'));
 //   app.listen(PORT, () => console.log('Now listening'));
 // });
 
+// why won't this commit to heroku!!!!
 sequelize.sync().then(() => {
     app.listen(PORT, () => console.log('Now listening'));
   });
