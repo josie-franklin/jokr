@@ -36,12 +36,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
 
-// // testing with force to create tables
+// enable this if you need to create or re-create tables.  Disable once tables are created.
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
-// testing to heroku without force
-// sequelize.sync().then(() => {
-//     app.listen(PORT, () => console.log('Now listening'));
-//   });
+// once tables are created enble this.  Disable if you need to create or recreate tables. 
+sequelize.sync().then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });
