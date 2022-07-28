@@ -19,6 +19,8 @@ const sess = {
   })
 };
 
+// testing to see why heroku changes database
+
 app.use(session(sess));
 
 const helpers = require('./utils/helpers');
