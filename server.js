@@ -36,11 +36,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
 
-// testing with force to create tables
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
+// // testing with force to create tables
+// sequelize.sync({ force: false }).then(() => {
+//   app.listen(PORT, () => console.log('Now listening'));
+// });
 
-// sequelize.sync().then(() => {
-//     app.listen(PORT, () => console.log('Now listening'));
-//   });
+// testing to heroku without force
+sequelize.sync().then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });
